@@ -1,0 +1,26 @@
+.seccion {
+    height: 100vh;
+    width: 100%;
+}
+
+.tarjeta {
+    border-color: black;
+    top: 200px;
+}
+
+.img-fluid{
+    height: 100%;
+}
+
+h1{
+    text-align: center;
+
+}
+
+.ranking{
+   display: flex;
+   flex-direction: column;
+   justify-content: center;
+   align-items: center;
+ 
+}
