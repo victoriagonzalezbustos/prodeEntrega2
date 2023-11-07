@@ -1,14 +1,33 @@
 
 
-//armo la funcion para guardar los datos que se suban desde el adin
-
-function Admin() {
-    let golesRiverReal= document.getElementById("GolesRiverReal").value
-    let golesBocaReal= document.getElementById("GolesBocaReal").value
-    console.log(golesRiverReal)
-    console.log(golesBocaReal)
-
+//armo la funcion y el evento para guardar los datos que se suban desde el admin
+class PartidoAdmin {
+    constructor( equipo1, equipo2, golesEquipo1Real,golesEqiupo2Real ){
+        this.equipo1 = equipo1,
+        this.equipo2 = equipo2,
+        this.golesEquipo1Real = golesEquipo1Real,
+        this.golesEqiupo2Real = golesEqiupo2Real
+    }
 }
+
+let botonAdmin = document.querySelector(".botonAdmin")
+console.log(botonAdmin)
+
+botonAdmin.addEventListener("click", function Admin() {
+    
+    let partido = document.querySelector(".Partido").textContent
+    let equipo1 = document.querySelector(".Equipo1").textContent
+    let equipo2 = document.querySelector(".Equipo2").textContent
+    let golesEquipo1Real= document.querySelector(".GolesEquipo1Real").value
+    let golesEqiupo2Real= document.querySelector(".GolesEquipo2Real").value
+  
+    let nuevo = new PartidoAdmin(equipo1, equipo2, golesEquipo1Real, golesEqiupo2Real)
+    let haciaLS = JSON.stringify(nuevo)
+    localStorage.setItem(partido,haciaLS)
+
+})
+
+
 
 //creo la clase para el usuario
 
@@ -54,7 +73,9 @@ listaUsuarios.push(usuario1, usuario2, usuario3)
 listaPuntos = []
 
 //funcion que se ejecuta en el registro para guardar al usuario
+let botonGuardarDatos = document.getElementById("botonGuardarDatos")
 
+botonGuardarDatos.addEventListener("click",
 function guardarDatos(){
     let email= document.getElementById("email").value
     let pass= document.getElementById("pass").value
@@ -62,38 +83,56 @@ function guardarDatos(){
     let lastName= document.getElementById("lastName").value
     let usuario = new Usuario(nombre, lastName, email, pass) 
 
+
+
     listaUsuarios.unshift(usuario)
     console.log(listaUsuarios)
 
 
-}
+})
+
+
 
 // funcion que guarda y evalua la prediccion del jugador en el prode
 
-function Apuesta(){
-    let golesRiverReal= document.getElementById("GolesRiverReal").value
-    let golesBocaReal= document.getElementById("GolesBocaReal").value
-    let golesRiverUsuario= document.getElementById("GolesRiverUsuario").value
-    let golesBocaUsuario= document.getElementById("GolesBocaUsuario").value
+let botonApuesta = document.getElementById("botonApuesta")
+
+botonApuesta.addEventListener("click", function Apuesta(){
+
+    let partidoProde = document.getElementById("PartidoProde").textContent
+    let resultadosreales = localStorage.getItem(partidoProde)
+    let objResultadosReales = JSON.parse(resultadosreales)
+    console.log(objResultadosReales)
+
+    let equipo1 = objResultadosReales.equipo1
+    let equipo2 = objResultadosReales.equipo2
+
+    // goles reales
+    let golesEquipo1Real= parseInt(objResultadosReales.golesEquipo1Real)
+    let golesEquipo2Real= parseInt(objResultadosReales.golesEqiupo2Real)
+    // goles del usuario
+    let golesEquipo1Usuario= document.getElementById("GolesEquipo1Usuario").value
+
+    let golesEquipo2Usuario= document.getElementById("GolesEquipo2Usuario").value
     puntosUsuario = listaUsuarios[0].puntos
 
-    if ( (golesBocaUsuario > golesRiverUsuario & golesBocaReal > golesRiverReal)) {
+    if ( (golesEquipo2Usuario > golesEquipo1Usuario & golesEquipo2Real > golesEquipo1Real)) {
         let respuestaResultado = document.querySelector(".respuestaResultado")
         let contenedorRespuestaResultado = document.createElement("div")
-        contenedorRespuestaResultado.innerHTML = "Acertaste! Gano Boca, sumas 1 punto"
+        contenedorRespuestaResultado.innerHTML = "Acertaste! Gano" + equipo2 + ", sumas 1 punto"
         respuestaResultado.appendChild(contenedorRespuestaResultado)
-        console.log("Acertaste! Gano Boca, sumas 1 punto")
+        console.log("Acertaste! Gano" + equipo2 + ", sumas 1 punto")
         puntosUsuario++
     }
-    else if ((golesBocaUsuario < golesRiverUsuario & golesBocaReal < golesRiverReal)) {
+    else if ((golesEquipo2Usuario < golesEquipo1Usuario & golesEquipo2Real < golesEquipo1Real)) {
         let respuestaResultado = document.querySelector(".respuestaResultado")
         let contenedorRespuestaResultado = document.createElement("div")
-        contenedorRespuestaResultado.innerHTML = "Acertaste! Gano River, sumas 1 punto"
+        contenedorRespuestaResultado.innerHTML = "Acertaste! Gano" + equipo1 + ", sumas 1 punto"
         respuestaResultado.appendChild(contenedorRespuestaResultado)
-        console.log("Acertaste! Gano River, sumas 1 punto")
+        console.log("Acertaste! Gano" + equipo1 + ", sumas 1 punto")
         puntosUsuario ++
     }
-    else if ((golesBocaUsuario == golesRiverUsuario & golesBocaReal == golesRiverReal)){
+    else if ((golesEquipo2Usuario == golesEquipo1Usuario & golesEquipo2Real == golesEquipo1Real)){
         let respuestaResultado = document.querySelector(".respuestaResultado")
         let contenedorRespuestaResultado = document.createElement("div")
         contenedorRespuestaResultado.innerHTML = "Acertaste! Empataron, sumas 1 punto"
@@ -109,35 +148,35 @@ function Apuesta(){
         
     }
     
-    if (golesBocaUsuario==golesBocaReal) {
+    if (golesEquipo2Usuario==golesEquipo2Real) {
         let respuestaResultado = document.querySelector(".respuestaGolesBoca")
         let contenedorRespuestaResultado = document.createElement("div")
-        contenedorRespuestaResultado.innerHTML = "Acertaste los goles de Boca! Sumas un punto!"
+        contenedorRespuestaResultado.innerHTML = "Acertaste los goles de " + equipo2 +" ! Sumas un punto!"
         respuestaResultado.appendChild(contenedorRespuestaResultado)  
-        console.log("Acertaste los goles de Boca! Sumas un punto!")
+        console.log("Acertaste los goles de" + equipo2 +"! Sumas un punto!")
         puntosUsuario ++
     } else {
         let respuestaResultado = document.querySelector(".respuestaGolesBoca")
         let contenedorRespuestaResultado = document.createElement("div")
-        contenedorRespuestaResultado.innerHTML = "No acertaste los goles de Boca, no sumas puntos en esta categoria"
+        contenedorRespuestaResultado.innerHTML = "No acertaste los goles de " + equipo2 +" , no sumas puntos en esta categoria"
         respuestaResultado.appendChild(contenedorRespuestaResultado)  
-        console.log("No acertaste los goles de Boca, no sumas puntos en esta categoria")
+        console.log("No acertaste los goles de " + equipo2 +" , no sumas puntos en esta categoria")
         
     }
     
-    if (golesRiverUsuario==golesRiverReal) {
+    if (golesEquipo1Usuario==golesEquipo1Real) {
         let respuestaResultado = document.querySelector(".respuestaGolesRiver")
         let contenedorRespuestaResultado = document.createElement("div")
-        contenedorRespuestaResultado.innerHTML = "Acertaste los goles de River! Sumas un punto!"
+        contenedorRespuestaResultado.innerHTML = "Acertaste los goles de "+ equipo1 + " ! Sumas un punto!"
         respuestaResultado.appendChild(contenedorRespuestaResultado)  
-        console.log("Acertaste los goles de River! Sumas un punto!")
+        console.log("Acertaste los goles de "+ equipo1 + " ! Sumas un punto!")
         puntosUsuario ++
     } else {
         let respuestaResultado = document.querySelector(".respuestaGolesRiver")
         let contenedorRespuestaResultado = document.createElement("div")
-        contenedorRespuestaResultado.innerHTML = "No acertaste los goles de River, no sumas puntos en esta categoria"
+        contenedorRespuestaResultado.innerHTML = "No acertaste los goles de " + equipo1 + " , no sumas puntos en esta categoria"
         respuestaResultado.appendChild(contenedorRespuestaResultado)  
-        console.log("No acertaste los goles de River, no sumas puntos en esta categoria")
+        console.log("No acertaste los goles de " + equipo1 + " , no sumas puntos en esta categoria")
         
     }
 
@@ -148,13 +187,17 @@ function Apuesta(){
     listaUsuarios[0].puntos = puntosUsuario
     console.log()
     
-}
+})
 
 
-function resultados(lista){
+let mostrarResultados = document.getElementById("botonListaUsuarios")
+
+
+mostrarResultados.addEventListener("click", 
+function resultados(){
 
     
-    lista.sort((a,b) => {
+    listaUsuarios.sort((a,b) => {
         if(a.puntos > b.puntos) {
             return -1;
         } else if (a.puntos < b.puntos) {
@@ -163,14 +206,14 @@ function resultados(lista){
             return 0;
         }
     });
-    console.log(lista)
+    console.log(listaUsuarios)
     let text ="";
     for (var i = 0; i < listaUsuarios.length; i++) {
         text += '<li>'+listaUsuarios[i].nombre + " " +listaUsuarios[i].puntos+'</li>';
     }
     
     document.getElementById("ranking").innerHTML = text; 
-}
+})
 
   
 

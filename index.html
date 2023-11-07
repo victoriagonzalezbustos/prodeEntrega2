@@ -9,7 +9,7 @@
     </head>
 
     <body>
-        <script src="./registro.js"></script>
+      
       <div class="seccion">
         <h1 class="container "> Seccion admin esto es par que complete el administrador con los goles reales que hicieron los equipos en el partido</h1>
         <div class="container">
@@ -20,26 +20,24 @@
               </div>
               <div class="col-md-8">
                 <div class="card-body">
-                  <h5 class="card-title">Si sos admin completa con cuantos goles hicieron boca y river</h5>
+                  <h5 class="card-title Partido">BOCA VS RIVER</h5>
                   <div class="col-md-6">
-                    <label for="inputPassword4" class="form-label">Goles River</label>
-                    <input type="" class="form-control" id="GolesRiverReal">
+                    <label for="inputPassword4" class="form-label Equipo1" >Goles River</label>
+                    <input type="" class="form-control GolesEquipo1Real" >
                   </div>
                   <div class="col-md-6">
-                    <label for="inputPassword4" class="form-label">Goles Boca</label>
-                    <input type="" class="form-control" id="GolesBocaReal">
+                    <label for="inputPassword4" class="form-label Equipo2" >Goles Boca</label>
+                    <input type="" class="form-control GolesEquipo2Real" >
                     <div class="col-12">
-                      <a href="#registro"><button type="button" onclick="Admin()" class="btn btn-primary">Enviar</button></a>
+                      <a href="#registro"><button type="button" class="btn btn-primary botonAdmin">Enviar</button></a>
                     </div>
                   </div>
                 </div>
               </div>
-            </div>
           </div>
         </div>
-      </div> 
-        
-        <div class="container seccion">
+      </div>      
+      <div class="container seccion">
           <h1 class="container" id="registro"> REGISTRATE</h1>
             <form class="row g-3">
                 <div class="col-md-6">
@@ -61,7 +59,7 @@
                
             </form>
               <div class="col-12">
-                <a href="#juga"><button type="button" onclick="guardarDatos()" class="btn btn-primary">Sign in</button></a>
+                <a href="#juga"><button type="button" id="botonGuardarDatos" class="btn btn-primary">Sign in</button></a>
               </div>
 
         </div>
@@ -76,16 +74,16 @@
               </div>
               <div class="col-md-8">
                 <div class="card-body">
-                  <h5 class="card-title">Completa con cuantos goles crees que va a hacer cada equipo</h5>
+                  <h5 class="card-title" id="PartidoProde">BOCA VS RIVER</h5>
                   <div class="col-md-6">
                     <label for="inputPassword4" class="form-label">Goles River</label>
-                    <input type="" class="form-control" id="GolesRiverUsuario">
+                    <input type="" class="form-control" id="GolesEquipo1Usuario">
                   </div>
                   <div class="col-md-6">
                     <label for="inputPassword4" class="form-label">Goles Boca</label>
-                    <input type="" class="form-control" id="GolesBocaUsuario">
+                    <input type="" class="form-control" id="GolesEquipo2Usuario">
                     <div class="col-12">
-                      <a href="#resultados"><button type="button" onclick="Apuesta()" class="btn btn-primary">Enviar</button></a>
+                      <a href="#resultados"><button type="button" id="botonApuesta" class="btn btn-primary">Enviar</button></a>
                       <div class=" container respuestaResultado">
                         
                       </div>
@@ -108,11 +106,12 @@
 
         <div class="container seccion" id="resultados">
           <div class="col-12">
-            <button type="button" onclick="resultados(listaUsuarios)" class="btn btn-primary">Mostrar ranking</button>
+            <button type="button" id="botonListaUsuarios" class="btn btn-primary">Mostrar ranking</button>
           </div>
           <ul id="ranking">
 
           </ul>
         </div>
-
+    <script src="./registro.js"></script> 
+    </body>
 </html>
