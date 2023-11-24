@@ -1,0 +1,49 @@
+/*
+async function ResultadosReales(){
+    await fetch("https://v3.football.api-sports.io/fixtures/headtohead?h2h=33-34", {
+        "method": "GET",
+        "headers": {
+            "x-rapidapi-host": "v3.football.api-sports.io",
+            "x-rapidapi-key": "68b476039a6b5f4bb6b1fc0046fad8db"
+        }
+    })
+    .then(res=> res.json())
+    .then(response=>{
+        DataPartidos = response.response
+        console.log(DataPartidos)
+    })
+    
+for (let match of DataPartidos){
+    fechasPartidos= match.fixture.date
+    NombresEquiposVisitantes= match.teams.away.name
+    NombresEquiposlocales= match.teams.home.name
+    golesEquiposVisitantes= match.goals.away
+    golesEquiposLocales= match.goals.home
+
+}
+}
+
+ResultadosReales()
+
+*/
+
+arrayPartidos= ["river vs boca", "racing vs independiente", "san lorenzo vs huracan"]
+arrayGoleslocales= [2, 1, 0]
+arrayGolesvisitantes= [1,3,5]
+
+
+class PartidosReales {
+    constructor(partido, goleslocales, golesvisitante ){
+        this.partido = partido,
+        this.goleslocales = goleslocales,
+        this.golesvisitante = golesvisitante
+    }
+}
+
+for( let i of arrayPartidos){
+    a = arrayPartidos.indexOf(i)
+    console.log(new PartidosReales(i, arrayGoleslocales[a],arrayGolesvisitantes[a]) )
+
+}
+
+

@@ -1,101 +1,61 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="with=device-with initial-scale=1.0">
-        
-        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
-        <link rel="stylesheet" type="text/css" href="styles.css">
-    </head>
-
-    <body>
-      
-      <div class="seccion">
-        <h1 class="container "> Seccion admin esto es par que complete el administrador con los goles reales que hicieron los equipos en el partido</h1>
-        <div class="container">
-          <div class="card mb-3 tarjeta">
-            <div class="row g-0">
-              <div class="col-md-4">
-                <img src="./imagenes/descarga.jfif" class="img-fluid rounded-start " alt="...">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=, initial-scale=1.0">
+    <title>Document</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="styles.css">
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+</head>
+<body>
+    <div class="container seccion">
+        <h1 class="container" id="registro"> REGISTRATE</h1>
+          <form class="row g-3">
+              <div class="col-md-6">
+                <label for="inputEmail4" class="form-label">Email</label>
+                <input type="email" class="form-control" id="email">
               </div>
-              <div class="col-md-8">
-                <div class="card-body">
-                  <h5 class="card-title Partido">BOCA VS RIVER</h5>
-                  <div class="col-md-6">
-                    <label for="inputPassword4" class="form-label Equipo1" >Goles River</label>
-                    <input type="" class="form-control GolesEquipo1Real" >
-                  </div>
-                  <div class="col-md-6">
-                    <label for="inputPassword4" class="form-label Equipo2" >Goles Boca</label>
-                    <input type="" class="form-control GolesEquipo2Real" >
-                    <div class="col-12">
-                      <a href="#registro"><button type="button" class="btn btn-primary botonAdmin">Enviar</button></a>
-                    </div>
-                  </div>
+              <div class="col-md-6">
+                <label for="inputPassword4" class="form-label">Password</label>
+                <input type="password" class="form-control" id="pass">
+              </div>
+              <div class="col-md-6">
+                <label for="inputName" class="form-label">Name</label>
+                <input type="text" class="form-control" id="name" >
+              </div>
+              <div class="col-md-6">
+                  <label for="inputLastName" class="form-label">Last Name</label>
+                  <input type="text" class="form-control" id="lastName">
                 </div>
-              </div>
-          </div>
-        </div>
-        
+             
+          </form>
+            <div class="col-12">
+              <a href="#juga"><button type="button" id="botonGuardarDatos" class="btn btn-primary">Sign up</button></a>
+            </div>
+    
+      </div>
+
       <div class="container seccion">
-          <h1 class="container" id="registro"> REGISTRATE</h1>
-            <form class="row g-3">
+        <h1 class="container" id="juga"> JUGA </h1>
+      <div class="tarjetas">
+        <div class="card mb-3 tarjeta">
+          <div class="row g-0">
+            <div class="col-md-4">
+              <img src="./imagenes/descarga.jfif" class="img-fluid rounded-start" alt="...">
+            </div>
+            <div class="col-md-8">
+              <div class="card-body">
+                <h5 class="card-title Partido" id="PartidoProde1">Juventude vs America Mineiro</h5>
                 <div class="col-md-6">
-                  <label for="inputEmail4" class="form-label">Email</label>
-                  <input type="email" class="form-control" id="email">
+                  <label for="inputPassword4" class="form-label Equipo1" >Juventude</label>
+                  <input type="" class="form-control GolesEquipo1Usuario">
                 </div>
                 <div class="col-md-6">
-                  <label for="inputPassword4" class="form-label">Password</label>
-                  <input type="password" class="form-control" id="pass">
-                </div>
-                <div class="col-md-6">
-                  <label for="inputName" class="form-label">Name</label>
-                  <input type="text" class="form-control" id="name" >
-                </div>
-                <div class="col-md-6">
-                    <label for="inputLastName" class="form-label">Last Name</label>
-                    <input type="text" class="form-control" id="lastName">
-                  </div>
-               
-            </form>
-              <div class="col-12">
-                <a href="#juga"><button type="button" id="botonGuardarDatos" class="btn btn-primary">Sign in</button></a>
-              </div>
-
-        </div>
-
-       
-        <div class="container seccion">
-          <h1 class="container" id="juga"> JUGA </h1>
-          <div class="card mb-3 tarjeta">
-            <div class="row g-0">
-              <div class="col-md-4">
-                <img src="./imagenes/descarga.jfif" class="img-fluid rounded-start" alt="...">
-              </div>
-              <div class="col-md-8">
-                <div class="card-body">
-                  <h5 class="card-title" id="PartidoProde">BOCA VS RIVER</h5>
-                  <div class="col-md-6">
-                    <label for="inputPassword4" class="form-label">Goles River</label>
-                    <input type="" class="form-control" id="GolesEquipo1Usuario">
-                  </div>
-                  <div class="col-md-6">
-                    <label for="inputPassword4" class="form-label">Goles Boca</label>
-                    <input type="" class="form-control" id="GolesEquipo2Usuario">
-                    <div class="col-12">
-                      <a href="#resultados"><button type="button" id="botonApuesta" class="btn btn-primary">Enviar</button></a>
-                      <div class=" container respuestaResultado">
-                        
-                      </div>
-                      <div class=" container respuestaGolesRiver">
-                        
-                      </div>
-                      <div class=" container respuestaGolesBoca">
-                        
-                      </div>
-                      <div class=" container puntosAcumulados">
-                        PUNTOS SUMADOS:
-                      </div>
+                  <label for="inputPassword4" class="form-label Equipo2">America Mineiro</label>
+                  <input type="" class="form-control GolesEquipo2Usuario">
+                  <div class="col-12">
+                    <a href="#resultados"><button type="button" class="btn btn-primary botonGuardarApuesta" id="0">Guardar</button></a>
                     </div>
                   </div>
                 </div>
@@ -103,15 +63,64 @@
             </div>
           </div>
         </div>
-
-        <div class="container seccion" id="resultados">
-          <div class="col-12">
-            <button type="button" id="botonListaUsuarios" class="btn btn-primary">Mostrar ranking</button>
+        <div class="tarjetas">
+          <div class="card mb-3 tarjeta">
+            <div class="row g-0">
+              <div class="col-md-4">
+                <img src="./imagenes/descarga (1).jfif" class="img-fluid rounded-start" alt="...">
+              </div>
+              <div class="col-md-8">
+                <div class="card-body">
+                  <h5 class="card-title Partido " id="PartidoProde2">Guabirá vs Macara</h5>
+                  <div class="col-md-6">
+                    <label for="inputPassword4" class="form-label Equipo1">Guabirá</label>
+                    <input type="" class="form-control GolesEquipo1Usuario">
+                  </div>
+                  <div class="col-md-6">
+                    <label for="inputPassword4" class="form-label Equipo2">Macara</label>
+                    <input type="" class="form-control GolesEquipo2Usuario">
+                    <div class="col-12">
+                      <a href="#resultados"><button type="button" class="btn btn-primary botonGuardarApuesta" id="1">Guardar</button></a>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
           </div>
-          <ul id="ranking">
-
-          </ul>
+        <div class="card mb-3 tarjeta">
+          <div class="row g-0">
+            <div class="col-md-4">
+              <img src="./imagenes/images.jfif" class="img-fluid rounded-start" alt="...">
+            </div>
+            <div class="col-md-8">
+              <div class="card-body">
+                <h5 class="card-title Partido" id="PartidoProde3">Atletico Nacional vs Libertad Asuncion</h5>
+                <div class="col-md-6">
+                  <label for="inputPassword4" class="form-label Equipo1">Atletico Nacional</label>
+                  <input type="" class="form-control GolesEquipo1Usuario">
+                </div>
+                <div class="col-md-6">
+                  <label for="inputPassword4" class="form-label Equipo2">Libertad Asuncion</label>
+                  <input type="" class="form-control GolesEquipo2Usuario">
+                  <div class="col-12">
+                    <a href=""><button type="button" class="btn btn-primary botonGuardarApuesta" id="2">Guardar</button></a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <button class="mostrarResultados"> MOSTRAR RESULTADOS </button>
+          <div class="tituloResultados"> RESULTADOS </div>
+          <div class="resultado"></div>
+          <div class="puntosAcumulados"></div>
+          <button class="mostrarRanking">MOSTRAR RANKING</button>
+          <div id="ranking"></div>
         </div>
-    <script src="./registro.js"></script> 
-    </body>
+    </div>
+
+
+    <script src="app.js"></script>
+</body>
 </html>
