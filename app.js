@@ -78,7 +78,7 @@ let botonGuardarApuesta= document.querySelectorAll(".botonGuardarApuesta")
 for ( let boton of botonGuardarApuesta){
 
 boton.addEventListener("click", function GuardarApuesta() {
-/*
+
     let i= boton.id
 
     let partidos= document.querySelectorAll(".Partido")
@@ -105,7 +105,7 @@ boton.addEventListener("click", function GuardarApuesta() {
     golesEquipo1apuesta[i].disabled = true
     golesEquipo2apuesta[i].disabled = true
 
-    */
+    
     Swal.fire({
         title: "Apuesta exitosa!",
         text: "Tu prediccion se guardo exitosamente!",
